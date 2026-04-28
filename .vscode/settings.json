@@ -52,7 +52,7 @@
 	"explorer.confirmDragAndDrop": false,
 	"scm.defaultViewMode": "tree",
 	"scm.showHistoryGraph": false,
-	// Git
+	// Versioning
 	"git.autofetch": true,
 	"git.enableSmartCommit": true,
 	"git.openRepositoryInParentFolders": "always",
