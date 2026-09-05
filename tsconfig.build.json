@@ -2,25 +2,18 @@
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"extends": "./tsconfig.base.json",
 	"include": [
-		"src/**/*.ts",
-		"src/**/*.tsx",
-		"src/**/*.js",
-		"src/**/*.jsx",
-		"next-env.d.ts",
-		".next/types/**/*.ts",
-		"build"
+		".react-router/types/**/*",
+		"app/**/*",
+		"app/**/.server/**/*",
+		"app/**/.client/**/*"
 	],
 	"exclude": [
 		"node_modules",
+		"build",
+		"coverage",
 		"scripts",
 		"tests",
 		"**/*.test.ts",
-		"**/*.test.tsx",
-		"**/*.test.js",
-		"**/*.test.jsx",
-		"**/*.spec.ts",
-		"**/*.spec.tsx",
-		"**/*.spec.js",
-		"**/*.spec.jsx"
+		"**/*.test.tsx"
 	]
 }

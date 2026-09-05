@@ -1,165 +1,51 @@
 {
 	"$schema": "https://json.schemastore.org/tsconfig",
 	"compilerOptions": {
-		/*
-		  * Visit https://aka.ms/tsconfig.json to read more about this file
-		*/
-		/* Projects */
-		"incremental": true,
-		// "composite": true,
-		// "tsBuildInfoFile": "./",
-		// "disableSourceOfProjectReferenceRedirect": true,
-		// "disableSolutionSearching": true,
-		// "disableReferencedProjectLoad": true,
 		/* Language and Environment */
-		"target": "ES5",
+		"target": "ES2022",
 		"lib": [
-			"ESNext",
 			"DOM",
-			"DOM.Iterable"
+			"DOM.Iterable",
+			"ES2022"
 		],
 		"types": [
 			"node",
-			"jest"
+			"vite/client"
 		],
-		"jsx": "preserve",
-		"experimentalDecorators": true,
-		"emitDecoratorMetadata": true,
-		// "jsxFactory": "",
-		// "jsxFragmentFactory": "",
-		// "jsxImportSource": "",
-		// "reactNamespace": "",
-		"noLib": false,
-		// "useDefineForClassFields": true,
+		"jsx": "react-jsx",
 		/* Modules */
-		"module": "ESNext",
-		"moduleResolution": "Bundler",
+		"module": "ES2022",
+		"moduleResolution": "bundler",
 		"baseUrl": "./",
-		"rootDir": "./",
 		"rootDirs": [
-			"src",
-			"scripts",
-			"tests"
+			".",
+			"./.react-router/types"
 		],
 		"paths": {
-			"@configs/*": [
-				"src/configs/*"
-			],
-			"@common/*": [
-				"src/common/*"
-			],
-			"@components/*": [
-				"src/components/*"
-			],
-			"@pages/*": [
-				"src/pages/*"
-			],
-			"@shared/*": [
-				"src/shared/*"
-			],
-			"@dev/*": [
-				"src/dev/*"
+			"~/*": [
+				"./app/*"
 			]
 		},
-		// "typeRoots": [],
-		// "types": [],
-		// "allowUmdGlobalAccess": true,
 		"resolveJsonModule": true,
-		// "noResolve": true,
-		/* JavaScript Support */
-		"allowJs": true,
-		// "checkJs": true,
-		// "maxNodeModuleJsDepth": 1,
 		/* Emit */
-		"declaration": true,
-		// "declarationMap": true,
-		// "emitDeclarationOnly": true,
-		"sourceMap": true,
-		// "outFile": "./",
-		"outDir": "build",
-		"removeComments": true,
-		"noEmit": false,
-		// "importHelpers": true,
-		// "importsNotUsedAsValues": "remove",
-		// "downlevelIteration": true,
-		"sourceRoot": "src",
-		// "mapRoot": "",
-		// "inlineSourceMap": true,
-		// "inlineSources": true,
-		// "emitBOM": true,
-		// "newLine": "crlf",
-		// "stripInternal": true,
-		// "noEmitHelpers": true,
-		// "noEmitOnError": true,
-		// "preserveConstEnums": true,
-		// "declarationDir": "./",
-		// "preserveValueImports": true,
+		"noEmit": true,
 		/* Interop Constraints */
 		"isolatedModules": true,
 		"allowSyntheticDefaultImports": true,
 		"esModuleInterop": true,
-		// "preserveSymlinks": true,
+		"verbatimModuleSyntax": true,
 		"forceConsistentCasingInFileNames": true,
 		/* Type Checking */
 		"strict": true,
-		"noImplicitAny": true,
-		"strictNullChecks": true,
-		"strictFunctionTypes": true,
-		"strictBindCallApply": true,
-		"strictPropertyInitialization": true,
-		"noImplicitThis": true,
-		"useUnknownInCatchVariables": true,
-		"alwaysStrict": true,
-		// "noUnusedLocals": true,
-		// "noUnusedParameters": true,
-		// "exactOptionalPropertyTypes": true,
 		"noImplicitReturns": true,
-		// "noFallthroughCasesInSwitch": true,
-		// "noUncheckedIndexedAccess": true,
-		// "noImplicitOverride": true,
-		// "noPropertyAccessFromIndexSignature": true,
-		// "allowUnusedLabels": true,
-		// "allowUnreachableCode": true,
 		/* Completeness */
-		// "skipDefaultLibCheck": true,
 		"skipLibCheck": true,
-		"pretty": true,
-		"plugins": [
-			{
-				"name": "next"
-			}
-		],
+		"pretty": true
 	},
-	"include": [
-		"src/**/*.ts",
-		"src/**/*.tsx",
-		"src/**/*.js",
-		"src/**/*.jsx",
-		"next-env.d.ts",
-		".next/types/**/*.ts"
-	],
 	"exclude": [
 		"node_modules",
 		"build",
-		"scripts",
-		"tests",
-		"**/*.test.ts",
-		"**/*.test.tsx",
-		"**/*.test.js",
-		"**/*.test.jsx",
-		"**/*.spec.ts",
-		"**/*.spec.tsx",
-		"**/*.spec.js",
-		"**/*.spec.jsx"
-	],
-	"ts-node": {
-		"require": [
-			"tsconfig-paths/register"
-		]
-	},
-	"typeAcquisition": {
-		"include": [
-			"jest"
-		]
-	}
+		"coverage",
+		".react-router/**/*.js"
+	]
 }

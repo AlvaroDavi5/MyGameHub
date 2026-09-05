@@ -1,0 +1,21 @@
+# dependencies and generated output
+node_modules
+.react-router
+build
+coverage
+
+# sources that never take part in the image build
+tests
+scripts
+
+# tooling and local settings
+.git
+.github
+.vscode
+.env
+.env.*
+*.log
+
+# documentation
+README.md
+LICENSE.txt

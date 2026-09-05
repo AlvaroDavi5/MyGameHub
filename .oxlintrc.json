@@ -1,0 +1,326 @@
+{
+	"$schema": "./node_modules/oxlint/configuration_schema.json",
+	"plugins": [
+		"typescript",
+		"oxc",
+		"unicorn",
+		"import",
+		"promise",
+		"react",
+		"react-perf",
+		"jsx-a11y",
+		"vitest"
+	],
+	"categories": {
+		"correctness": "error",
+		"suspicious": "warn",
+		"perf": "warn"
+	},
+	"env": {
+		"builtin": true,
+		"es2024": true,
+		"browser": true,
+		"node": true
+	},
+	"options": {
+		"reportUnusedDisableDirectives": "warn"
+	},
+	"ignorePatterns": [
+		"node_modules",
+		"build",
+		"dist",
+		".react-router",
+		"coverage",
+		"public"
+	],
+	"rules": {
+		// * --- Correctness ---
+		"eqeqeq": [
+			"error",
+			"always"
+		],
+		"valid-typeof": "error",
+		"use-isnan": "error",
+		"no-cond-assign": "error",
+		"no-constant-binary-expression": "error",
+		"no-self-compare": "error",
+		"no-unsafe-optional-chaining": "error",
+		"no-return-assign": [
+			"error",
+			"always"
+		],
+		"no-unused-expressions": "error",
+		"no-fallthrough": "error",
+		"default-case": "error",
+		"default-case-last": "error",
+		"default-param-last": "error",
+		"guard-for-in": "error",
+		"array-callback-return": "error",
+		// * --- Language restrictions ---
+		"no-var": "error",
+		"no-eval": "error",
+		"no-implied-eval": "error",
+		"no-new-func": "error",
+		"no-new-wrappers": "error",
+		"no-throw-literal": "error",
+		"no-labels": "error",
+		"no-bitwise": "error",
+		"no-with": "error",
+		"no-alert": "error",
+		"no-script-url": "error",
+		"no-debugger": "error",
+		"no-console": "warn",
+		// * --- Modern syntax preferences ---
+		"prefer-const": "warn",
+		"prefer-template": "error",
+		"prefer-spread": "error",
+		"prefer-rest-params": "error",
+		"prefer-object-spread": "warn",
+		"prefer-promise-reject-errors": "error",
+		"object-shorthand": "warn",
+		"dot-notation": [
+			"error",
+			{
+				"allowKeywords": true
+			}
+		],
+		"radix": "warn",
+		"yoda": [
+			"error",
+			"never",
+			{
+				"exceptRange": true
+			}
+		],
+		"unicode-bom": [
+			"error",
+			"never"
+		],
+		// * --- Naming and shadowing ---
+		"no-shadow": [
+			"error",
+			{
+				"hoist": "all"
+			}
+		],
+		"no-shadow-restricted-names": "error",
+		"no-redeclare": "error",
+		"no-use-before-define": [
+			"error",
+			{
+				"functions": false,
+				"classes": true
+			}
+		],
+		"no-unused-vars": [
+			"error",
+			{
+				"argsIgnorePattern": "^_",
+				"varsIgnorePattern": "^_",
+				"caughtErrorsIgnorePattern": "^_"
+			}
+		],
+		// ? JSX pulls globals from the browser and React runtimes, not from scope
+		"no-undef": "off",
+		"no-underscore-dangle": "off",
+		// * --- Structure ---
+		"complexity": [
+			"warn",
+			20
+		],
+		"max-classes-per-file": [
+			"error",
+			1
+		],
+		"no-empty": "error",
+		"no-empty-function": [
+			"error",
+			{
+				"allow": [
+					"constructors"
+				]
+			}
+		],
+		"no-useless-constructor": "error",
+		"curly": "off",
+		"arrow-body-style": "off",
+		// * --- TypeScript ---
+		"typescript/ban-ts-comment": "error",
+		"typescript/array-type": "error",
+		"typescript/consistent-type-assertions": "error",
+		"typescript/consistent-type-imports": "off",
+		"typescript/adjacent-overload-signatures": "error",
+		"typescript/unified-signatures": "error",
+		"typescript/prefer-function-type": "error",
+		"typescript/prefer-for-of": "error",
+		"typescript/prefer-namespace-keyword": "error",
+		"typescript/no-namespace": "error",
+		"typescript/no-misused-new": "error",
+		"typescript/no-var-requires": "error",
+		"typescript/no-empty-interface": "error",
+		"typescript/no-explicit-any": "warn",
+		"typescript/no-non-null-assertion": "off",
+		"typescript/parameter-properties": "off",
+		"typescript/no-extraneous-class": "off",
+		"typescript/explicit-member-accessibility": "off",
+		"typescript/no-restricted-types": [
+			"error",
+			{
+				"types": {
+					"Object": {
+						"message": "Avoid using the `Object` type. Did you mean `object`?"
+					},
+					"Function": {
+						"message": "Avoid using the `Function` type. Prefer a specific function type, like `() => void`."
+					},
+					"Boolean": {
+						"message": "Avoid using the `Boolean` type. Did you mean `boolean`?"
+					},
+					"Number": {
+						"message": "Avoid using the `Number` type. Did you mean `number`?"
+					},
+					"String": {
+						"message": "Avoid using the `String` type. Did you mean `string`?"
+					},
+					"Symbol": {
+						"message": "Avoid using the `Symbol` type. Did you mean `symbol`?"
+					}
+				}
+			}
+		],
+		// * --- React ---
+		"react/rules-of-hooks": "error",
+		"react/exhaustive-deps": "warn",
+		"react/jsx-key": "error",
+		"react/jsx-no-duplicate-props": "error",
+		"react/jsx-no-undef": "error",
+		"react/jsx-no-target-blank": "error",
+		"react/jsx-no-script-url": "error",
+		"react/jsx-no-comment-textnodes": "error",
+		"react/jsx-no-useless-fragment": "warn",
+		"react/jsx-boolean-value": "warn",
+		"react/jsx-curly-brace-presence": "warn",
+		"react/jsx-fragments": "warn",
+		"react/jsx-pascal-case": "error",
+		"react/no-children-prop": "error",
+		"react/no-danger-with-children": "error",
+		"react/no-direct-mutation-state": "error",
+		"react/no-find-dom-node": "error",
+		"react/no-is-mounted": "error",
+		"react/no-string-refs": "error",
+		"react/no-render-return-value": "error",
+		"react/no-unescaped-entities": "error",
+		"react/no-unknown-property": "error",
+		"react/no-unstable-nested-components": "error",
+		"react/no-array-index-key": "warn",
+		"react/void-dom-elements-no-children": "error",
+		"react/self-closing-comp": "warn",
+		"react/prefer-function-component": "warn",
+		"react/button-has-type": "warn",
+		"react/style-prop-object": "warn",
+		// ? The automatic JSX runtime makes the React import unnecessary
+		"react/react-in-jsx-scope": "off",
+		"react/jsx-props-no-spreading": "off",
+		"react/no-multi-comp": "off",
+		// * --- React performance ---
+		"react-perf/jsx-no-new-object-as-prop": "off",
+		"react-perf/jsx-no-new-array-as-prop": "off",
+		"react-perf/jsx-no-new-function-as-prop": "off",
+		"react-perf/jsx-no-jsx-as-prop": "off",
+		// * --- Accessibility ---
+		"jsx-a11y/alt-text": "error",
+		"jsx-a11y/anchor-has-content": "error",
+		"jsx-a11y/anchor-is-valid": "error",
+		"jsx-a11y/aria-props": "error",
+		"jsx-a11y/aria-proptypes": "error",
+		"jsx-a11y/aria-role": "error",
+		"jsx-a11y/aria-unsupported-elements": "error",
+		"jsx-a11y/heading-has-content": "error",
+		"jsx-a11y/html-has-lang": "error",
+		"jsx-a11y/iframe-has-title": "error",
+		"jsx-a11y/img-redundant-alt": "warn",
+		"jsx-a11y/no-access-key": "error",
+		"jsx-a11y/no-autofocus": "warn",
+		"jsx-a11y/no-distracting-elements": "error",
+		"jsx-a11y/no-redundant-roles": "warn",
+		"jsx-a11y/role-has-required-aria-props": "error",
+		"jsx-a11y/role-supports-aria-props": "error",
+		"jsx-a11y/scope": "error",
+		"jsx-a11y/tabindex-no-positive": "warn",
+		// * --- Imports ---
+		"import/default": "error",
+		"import/no-self-import": "error",
+		"import/no-duplicates": "warn",
+		// * --- Promises ---
+		"promise/no-callback-in-promise": "warn",
+		"promise/no-return-wrap": "error",
+		"promise/param-names": "error",
+		"promise/prefer-await-to-then": "off",
+		// * --- Unicorn ---
+		"unicorn/no-useless-fallback-in-spread": "off",
+		"unicorn/prefer-node-protocol": "off",
+		"unicorn/prefer-query-selector": "off",
+		"unicorn/no-null": "off"
+	},
+	"overrides": [
+		// ? Maintenance scripts are CLI processes that report to stdout by design
+		{
+			"files": [
+				"scripts/**/*.ts"
+			],
+			"rules": {
+				"no-console": "off"
+			}
+		},
+		// ? Route modules export loaders and metadata alongside their component
+		{
+			"files": [
+				"app/root.tsx",
+				"app/routes/**/*.tsx",
+				"app/routes.ts",
+				"*.config.ts"
+			],
+			"rules": {
+				"react/only-export-components": "off",
+				"no-console": "off"
+			}
+		},
+		// ? Specs stub types freely and assert against globals injected by Vitest
+		{
+			"files": [
+				"tests/**/*.{ts,tsx}"
+			],
+			"env": {
+				"vitest": true
+			},
+			"rules": {
+				"no-console": "off",
+				"max-classes-per-file": "off",
+				"no-empty-function": "off",
+				"typescript/no-explicit-any": "off",
+				// ? Setup files pull matchers and polyfills in for their side effects
+				"import/no-unassigned-import": "off",
+				// ? jsdom polyfills are stubs, not typed mocks of a known signature
+				"vitest/require-mock-type-parameters": "off",
+				"vitest/no-focused-tests": "error",
+				"vitest/no-identical-title": "error",
+				"vitest/no-disabled-tests": "warn",
+				"vitest/expect-expect": "warn",
+				"vitest/valid-expect": "error",
+				"vitest/valid-describe-callback": "error",
+				"vitest/no-conditional-expect": "warn",
+				// ? Specs often set up fixtures ahead of the tests that will exercise them
+				"no-unused-vars": "warn"
+			}
+		},
+		// ? Ambient declaration files are never modules
+		{
+			"files": [
+				"**/*.d.ts"
+			],
+			"rules": {
+				"import/unambiguous": "off"
+			}
+		}
+	]
+}

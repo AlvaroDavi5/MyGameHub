@@ -6,7 +6,7 @@ Pull Request title pattern:
 
 # PROJ-TASK_ID
 
-[Task Link](https://google.com)  
+[Task Link](https://google.com)
 
 ## Task Description
 
@@ -17,24 +17,24 @@ Description of the functionality and main decisions made
 
 ## Checklist
 
-- [ ] Commits according to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)  
-	* Also allowed types from: [CommitLint Conventional Changelog](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional#readme)
-- [ ] Typecheck and build passed  
-- [ ] Security check passed  
-- [ ] Already in development and test branches  
-- [ ] Tested affected pages, components, requests or connections  
-- [ ] Implemented and approved tests  
-- [ ] Added GitHub labels for PR/Issues  
-- [ ] Code owners marked for review  
-- [ ] ESLint rules passed  
+- [ ] Commits according to [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+  - Also allowed types from: [CommitLint Conventional Changelog](https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional#readme)
+- [ ] Typecheck and build passed
+- [ ] Security check passed
+- [ ] Already in development and test branches
+- [ ] Tested affected pages, components, requests or connections
+- [ ] Implemented and approved tests
+- [ ] Added GitHub labels for PR/Issues
+- [ ] Code owners marked for review
+- [ ] Oxlint rules passed
 
-___
+---
 
-Justification for unselected checkboxes:
+#### Justification for unselected checkboxes:
 
 ...
 
 ## Evidence
 
 [Logs Link](https://google.com)  
-![Image Link](https://google.com)  
+![Image Link](https://google.com)

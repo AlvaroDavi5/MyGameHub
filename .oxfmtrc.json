@@ -1,0 +1,81 @@
+{
+	"$schema": "./node_modules/oxfmt/configuration_schema.json",
+	"singleQuote": true,
+	"quoteProps": "as-needed",
+	"jsxSingleQuote": false,
+	"semi": true,
+	"trailingComma": "es5",
+	"printWidth": 160,
+	"tabWidth": 2,
+	"useTabs": true,
+	"bracketSpacing": true,
+	"bracketSameLine": false,
+	"arrowParens": "always",
+	"objectWrap": "preserve",
+	"htmlWhitespaceSensitivity": "css",
+	"singleAttributePerLine": false,
+	"embeddedLanguageFormatting": "auto",
+	"proseWrap": "never",
+	"endOfLine": "lf",
+	"insertFinalNewline": true,
+	"sortPackageJson": false,
+	"ignorePatterns": [
+		"node_modules",
+		"build",
+		"dist",
+		".react-router",
+		"coverage",
+		"package-lock.json"
+	],
+	"overrides": [
+		// ? JSX-heavy modules keep the same width as the rest of the sources
+		{
+			"files": [
+				"*.jsx",
+				"*.tsx"
+			],
+			"options": {
+				"printWidth": 160
+			}
+		},
+		// ? Stylesheets get more room before wrapping
+		{
+			"files": [
+				"*.css",
+				"*.scss"
+			],
+			"options": {
+				"printWidth": 190
+			}
+		},
+		// ? Configuration and data files are wide but never wrapped mid-value
+		{
+			"files": [
+				"*.json",
+				"*.jsonc"
+			],
+			"options": {
+				"printWidth": 190
+			}
+		},
+		// ? Prose keeps a narrower, reviewable width
+		{
+			"files": [
+				"*.md"
+			],
+			"options": {
+				"printWidth": 120
+			}
+		},
+		{
+			"files": [
+				"*.yml",
+				"*.yaml"
+			],
+			"options": {
+				"printWidth": 120,
+				"proseWrap": "always"
+			}
+		}
+	]
+}

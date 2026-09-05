@@ -11,6 +11,7 @@ build/
 dist/
 .next/
 .angular/
+.react-router/
 .sass-cache/
 out-tsc/
 bazel-out/
@@ -68,4 +69,4 @@ tmp/
 !.vscode/launch.json
 !.vscode/tasks.json
 !.vscode/extensions.json
-!TODO-example.txt
+!.env.local
