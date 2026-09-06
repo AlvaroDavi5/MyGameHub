@@ -92,11 +92,13 @@ npm run test:coverage # tests with coverage report
 
 - [ ] Update Launch Settings
 - **Concepts**
+	- [ ] Authentication
+	- [ ] API Integration
   - Application State
     - [ ] Redux
     - [ ] Context API
     - [ ] Fetch API
-  - [ ] UseState, UseEffect, UseContext
+  - [ ] UseState, UseEffect, UseContext, UseReducer, UseMemo
   - Rendering
     - [ ] Static Site Generation (prerender)
     - [ ] Client-Side Rendering
@@ -105,14 +107,13 @@ npm run test:coverage # tests with coverage report
       - loader
       - action
   - Components
+		- [ ] Authentication
     - [ ] Form
-    - [ ] NavBar
+    - [x] NavBar/Header+Drawer
     - [ ] Toast
     - [ ] DropDown
     - [ ] Modal
-    - [ ] Image
-    - [ ] Header
-    - [ ] Scroller
+    - [x] Image
   - Actions
     - [ ] Validations
     - [ ] Requests (Http)
