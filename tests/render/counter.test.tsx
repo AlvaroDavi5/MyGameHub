@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { Counter } from '~/components/counter';
+import { Counter } from '@components/counter';
 import { renderWithProviders } from '../utils';
 
 describe('Counter rendering', () => {

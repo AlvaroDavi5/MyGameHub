@@ -16,14 +16,19 @@
 		/* Modules */
 		"module": "ES2022",
 		"moduleResolution": "bundler",
-		"baseUrl": "./",
 		"rootDirs": [
 			".",
 			"./.react-router/types"
 		],
 		"paths": {
-			"~/*": [
-				"./app/*"
+			"@components/*": [
+				"./app/components/*"
+			],
+			"@configs/*": [
+				"./app/configs/*"
+			],
+			"@assets/*": [
+				"./app/assets/*"
 			]
 		},
 		"resolveJsonModule": true,

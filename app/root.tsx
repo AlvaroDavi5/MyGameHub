@@ -1,7 +1,8 @@
 import type { ReactElement } from 'react';
 import { Box, Code, Container, Heading, Text } from '@chakra-ui/react';
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
-import { AppChakraProvider } from '~/components/chakra_provider';
+import { AppChakraProvider } from '@components/chakra_provider';
+import { PageBase } from '@components/base/page-base';
 import type { Route } from './+types/root';
 
 export const links: Route.LinksFunction = () => [
@@ -36,7 +37,12 @@ export function Layout({ children }: { children: React.ReactNode }): ReactElemen
 }
 
 export default function App(): ReactElement {
-	return <Outlet />;
+	return (
+		<PageBase>
+			{/* The outlet component renders the child routes */}
+			<Outlet />
+		</PageBase>
+	);
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps): ReactElement {

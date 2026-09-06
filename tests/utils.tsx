@@ -1,6 +1,6 @@
 import { render, type RenderOptions, type RenderResult } from '@testing-library/react';
 import type { ReactElement, ReactNode } from 'react';
-import { AppChakraProvider } from '~/components/chakra_provider';
+import { AppChakraProvider } from '@components/chakra_provider';
 
 function Providers({ children }: { children: ReactNode }) {
 	return <AppChakraProvider>{children}</AppChakraProvider>;

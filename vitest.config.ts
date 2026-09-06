@@ -6,7 +6,9 @@ export default defineConfig({
 	plugins: [react()],
 	resolve: {
 		alias: {
-			'~': fileURLToPath(new URL('./app', import.meta.url)),
+			'@components': fileURLToPath(new URL('./app/components', import.meta.url)),
+			'@configs': fileURLToPath(new URL('./app/configs', import.meta.url)),
+			'@assets': fileURLToPath(new URL('./app/assets', import.meta.url)),
 		},
 	},
 	test: {
