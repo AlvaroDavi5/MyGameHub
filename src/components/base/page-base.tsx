@@ -1,7 +1,7 @@
 import type { ReactElement, ReactNode } from 'react';
+import { siteConfig } from '@configs/site';
 import { PageHeader } from './page-header';
 import type { Route } from '../../+types/root';
-import { siteConfig } from '@configs/site';
 
 interface PageBaseProps {
 	children: ReactNode;

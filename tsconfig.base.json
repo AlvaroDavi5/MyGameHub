@@ -22,13 +22,13 @@
 		],
 		"paths": {
 			"@components/*": [
-				"./app/components/*"
+				"./src/components/*"
 			],
 			"@configs/*": [
-				"./app/configs/*"
+				"./src/configs/*"
 			],
 			"@assets/*": [
-				"./app/assets/*"
+				"./src/assets/*"
 			]
 		},
 		"resolveJsonModule": true,

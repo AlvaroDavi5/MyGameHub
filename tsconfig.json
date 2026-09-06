@@ -4,9 +4,9 @@
 	"include": [
 		"./*.config.ts",
 		".react-router/types/**/*",
-		"app/**/*",
-		"app/**/.server/**/*",
-		"app/**/.client/**/*",
+		"src/**/*",
+		"src/**/.server/**/*",
+		"src/**/.client/**/*",
 		"scripts/**/*.ts",
 		"tests/**/*"
 	],

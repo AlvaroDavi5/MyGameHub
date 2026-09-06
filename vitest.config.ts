@@ -6,9 +6,9 @@ export default defineConfig({
 	plugins: [react()],
 	resolve: {
 		alias: {
-			'@components': fileURLToPath(new URL('./app/components', import.meta.url)),
-			'@configs': fileURLToPath(new URL('./app/configs', import.meta.url)),
-			'@assets': fileURLToPath(new URL('./app/assets', import.meta.url)),
+			'@components': fileURLToPath(new URL('./src/components', import.meta.url)),
+			'@configs': fileURLToPath(new URL('./src/configs', import.meta.url)),
+			'@assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
 		},
 	},
 	test: {
@@ -21,8 +21,8 @@ export default defineConfig({
 			provider: 'v8',
 			reportsDirectory: './coverage',
 			reporter: ['text', 'lcov'],
-			include: ['app/**/*.{ts,tsx}'],
-			exclude: ['app/**/*.d.ts', 'app/routes.ts'],
+			include: ['src/**/*.{ts,tsx}'],
+			exclude: ['src/**/*.d.ts', 'src/routes.ts'],
 		},
 	},
 });

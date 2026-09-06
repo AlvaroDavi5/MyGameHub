@@ -77,11 +77,11 @@ npm run test:coverage # tests with coverage report
 
 ### Project structure
 
-- `app` - Application root layout, route configuration and entry point;
-- `app/routes` - Route modules;
-- `app/components` - Reusable UI components;
-- `app/configs` - Library configuration (Chakra UI theme and color mode);
-- `app/welcome` - Welcome page component and its assets;
+- `src` - Application root layout, route configuration and entry point;
+- `src/pages` - Route page modules;
+- `src/components` - Reusable UI components;
+- `src/configs` - Library configuration (Chakra UI theme and color mode);
+- `src/assets` - Static assets imported by components (images, icons);
 - `public` - Static assets served as they are;
 - `tests` - Unit tests (state, logic and flows) and rendering tests;
 - `scripts` - Support scripts (e.g. security check);

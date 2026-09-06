@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import { Box, Code, Container, Heading, Text } from '@chakra-ui/react';
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
-import { AppChakraProvider } from '@components/chakra_provider';
+import { AppChakraProvider } from '@components/chakra/chakra_provider';
 import { PageBase } from '@components/base/page-base';
 import type { Route } from './+types/root';
 

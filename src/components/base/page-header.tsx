@@ -1,8 +1,8 @@
 import type { ReactElement } from 'react';
 import { Link as RouterLink } from 'react-router';
 import { Flex, Link as ChakraLink, Image, Heading, Box } from '@chakra-ui/react';
-import logo from '@assets/logo.svg';
 import { siteConfig } from '@configs/site';
+import logo from '@assets/logo.svg';
 import { MenuDrawer } from './menu-drawer';
 
 interface PageHeaderProps {
