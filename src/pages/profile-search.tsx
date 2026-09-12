@@ -13,7 +13,7 @@ export default function ProfileSearch() {
 
 	useEffect(() => {
 		if (inputUsername) {
-			console.log('Usuário pesquisado:', inputUsername);
+			// TODO - implementar pesquisa
 		}
 
 		return () => {
@@ -21,10 +21,9 @@ export default function ProfileSearch() {
 		};
 	}, [inputUsername]);
 
-	const inputUsernameChange = (inputValue: string): void => {
+	const changeInputUsername = (inputValue: string): void => {
 		const trimmedValue = inputValue.trim();
 		const wasChanged = trimmedValue !== inputUsername?.trim() && trimmedValue !== '';
-
 		setInputUsernameValue(inputValue);
 		setDisableSearchButton(!wasChanged);
 	};
@@ -42,7 +41,7 @@ export default function ProfileSearch() {
 				gap={[2, 4]}
 				padding={4}
 			>
-				<Input value={inputUsernameValue} onChange={(e) => inputUsernameChange(e.target.value)} placeholder="Digite o username" width={['100%', '600px']} />
+				<Input value={inputUsernameValue} onChange={(e) => changeInputUsername(e.target.value)} placeholder="Digite o username" width={['100%', '600px']} />
 				<Button onClick={submitSearch} disabled={disableSearchButton}>
 					Pesquisar
 				</Button>
