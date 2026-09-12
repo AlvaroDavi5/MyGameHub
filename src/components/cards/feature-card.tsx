@@ -26,7 +26,7 @@ export function FeatureCard({ to, imgSrc, imgAlt, children }: FeatureCardProps):
 				transition="background-color 0.2s ease"
 				_hover={{ bg: 'bg.card.hover' }}
 			>
-				<Image src={imgSrc} alt={imgAlt} width="full" h="250px" objectFit="cover" />
+				<Image src={imgSrc} alt={imgAlt} width="full" height="250px" objectFit="cover" />
 				<Card.Body padding="5px">
 					<Card.Title textAlign="center" textJustify="center" fontSize="lg">
 						<LinkOverlay asChild>
