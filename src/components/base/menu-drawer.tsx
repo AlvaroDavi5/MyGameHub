@@ -43,7 +43,7 @@ export function MenuDrawer(): ReactElement {
 				<Drawer.Backdrop />
 
 				<Drawer.Positioner>
-					<Drawer.Content background="bg.drawer">
+					<Drawer.Content background="bg.drawer" width="90%">
 						<Drawer.Title display="none" />
 
 						<Drawer.Header display="flex" justifyContent="flex-end">

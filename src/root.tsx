@@ -24,6 +24,7 @@ export function Layout({ children }: { children: React.ReactNode }): ReactElemen
 			<head>
 				<meta charSet="utf-8" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<meta name="language" content="pt-br" />
 				<Meta />
 				<Links />
 			</head>
