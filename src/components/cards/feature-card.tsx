@@ -20,13 +20,13 @@ export function FeatureCard({ to, imgSrc, imgAlt, children }: FeatureCardProps):
 				maxWidth="400px"
 				borderWidth="1px"
 				borderColor="border.subtle"
-				bg="bg.card"
+				background="bg.card"
 				borderRadius="2xl"
 				overflow="hidden"
 				transition="background-color 0.2s ease"
 				_hover={{ bg: 'bg.card.hover' }}
 			>
-				<Image src={imgSrc} alt={imgAlt} w="full" h="250px" objectFit="cover" />
+				<Image src={imgSrc} alt={imgAlt} width="full" h="250px" objectFit="cover" />
 				<Card.Body padding="5px">
 					<Card.Title textAlign="center" textJustify="center" fontSize="lg">
 						<LinkOverlay asChild>

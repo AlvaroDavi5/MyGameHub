@@ -13,7 +13,7 @@ export function PageHeader({ renderMenuDrawer = true }: PageHeaderProps): ReactE
 	const renderMenuDrawerComponent = renderMenuDrawer ? <MenuDrawer /> : <Box />;
 
 	return (
-		<Flex as="header" bg="bg.header" w="full" h="72px" px={4} align="center" justify="space-between" boxShadow="sm">
+		<Flex as="header" background="bg.header" width="full" h="72px" px={4} align="center" justify="space-between" boxShadow="sm">
 			<ChakraLink asChild display="flex" alignItems="center">
 				<RouterLink to="/" aria-label="Ir para homepage">
 					<Image src={logo} alt="Logo do site" boxSize="40px" />

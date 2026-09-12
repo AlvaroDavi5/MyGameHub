@@ -63,7 +63,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps): ReactElement
 			<Heading as="h1">{message}</Heading>
 			<Text>{details}</Text>
 			{stack && (
-				<Box as="pre" w="full" p={4} overflowX="auto">
+				<Box as="pre" width="full" p={4} overflowX="auto">
 					<Code>{stack}</Code>
 				</Box>
 			)}

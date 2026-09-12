@@ -12,7 +12,7 @@ export function meta(_args: Route.MetaArgs) {
 
 export default function Home() {
 	return (
-		<Flex as="main" wrap="wrap" justify="center" align="center" gap={8} p={8} minH="calc(100vh - 72px)">
+		<Flex wrap="wrap" justify="center" align="center" gap={8} padding={8} minH="calc(100vh - 72px)">
 			<FeatureCard to="/profile-search" imgSrc={profileSearchImg} imgAlt="Pesquisar usuários">
 				Pesquisar Usuários
 			</FeatureCard>
