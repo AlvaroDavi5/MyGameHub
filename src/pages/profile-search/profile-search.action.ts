@@ -1,5 +1,6 @@
 import type { ActionFunctionArgs } from 'react-router';
-import { SteamApiClient } from '@lib/api/steam-api';
+import { SteamApiClient } from '@lib/api/steam-api.client';
+import { toActionErrorResult } from '@lib/http/action-error';
 
 export type ProfileSearchActionResult = Awaited<ReturnType<typeof profileSearchAction>>;
 
@@ -13,22 +14,13 @@ export async function profileSearchAction({ request }: ActionFunctionArgs) {
 
 		const isUsernameSteamId = /^\d+$/.test(username);
 		if (!isUsernameSteamId) {
-			const steamIdRes = await steamClient.getSteamIdByUsername(username);
-			if ('error' in steamIdRes) {
-				return { error: steamIdRes.error };
-			}
-			steamId = steamIdRes.data.steamId;
+			const { steamId: resolvedSteamId } = await steamClient.getSteamIdByUsername(username);
+			steamId = resolvedSteamId;
 		}
 
-		const playerRes = await steamClient.getPlayerStatsBySteamId(steamId);
-		if ('error' in playerRes) {
-			return { error: playerRes.error };
-		}
-		return { data: playerRes.data };
+		const player = await steamClient.getPlayerStatsBySteamId(steamId);
+		return { data: player };
 	} catch (error) {
-		if (error instanceof Error) {
-			return { error: error.message };
-		}
-		return { error: 'Ocorreu um erro desconhecido ao pesquisar o perfil' };
+		return toActionErrorResult(error);
 	}
 }

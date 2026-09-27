@@ -1,6 +1,9 @@
 import type { AxiosInstance } from 'axios';
 import { environment } from '@configs/environment';
+import { HttpError } from '../http/http-error';
 import { createAxiosInstance } from '../http/axios';
+import type { IGetPlayerStatsBySteamIdResponse, IGetSteamIdByUsernameResponse } from './steam-api.contract';
+import { HttpStatusEnum } from '@lib/http/http-status.enum';
 
 export class SteamApiClient {
 	private client: AxiosInstance;
@@ -12,25 +15,26 @@ export class SteamApiClient {
 		this.client = createAxiosInstance(this.BASE_URL, this.AXIOS_TIMEOUT, { key: this.API_KEY, format: 'json' });
 	}
 
-	public async getSteamIdByUsername(username: string): Promise<SuccessOrErrorResponse<IGetSteamIdByUsernameResponse>> {
+	public async getSteamIdByUsername(username: string): Promise<IGetSteamIdByUsernameResponse> {
 		const { data } = await this.client.get<IResolveVanityURLResponse>(`/ISteamUser/ResolveVanityURL/v1/?vanityurl=${encodeURIComponent(username)}`, {
 			params: {
 				vanityurl: username,
 			},
 		});
-		if (data.response.steamid) {
-			return { data: { steamId: data.response.steamid } };
+		if (!data.response.steamid) {
+			throw new HttpError(HttpStatusEnum.NOT_FOUND, data.response.message || 'SteamID não encontrado');
 		}
-		return { error: data.response.message || 'SteamID não encontrado' };
+		return { steamId: data.response.steamid };
 	}
 
-	public async getPlayerStatsBySteamId(steamId: string): Promise<SuccessOrErrorResponse<IGetPlayerStatsBySteamIdResponse>> {
+	public async getPlayerStatsBySteamId(steamId: string): Promise<IGetPlayerStatsBySteamIdResponse> {
 		const { data } = await this.client.get<IGetPlayerSummariesResponse>(`/ISteamUser/GetPlayerSummaries/v0002/`, {
 			params: { steamids: steamId },
 		});
-		if (data.response.players.length > 0) {
-			return { data: data.response.players[0] };
+		const [player] = data.response.players;
+		if (!player) {
+			throw new HttpError(HttpStatusEnum.NOT_FOUND, 'Player não encontrado');
 		}
-		return { error: 'Player não encontrado' };
+		return player;
 	}
 }
