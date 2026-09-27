@@ -3,6 +3,7 @@ import { ThemeProvider } from 'next-themes';
 import type { ReactNode } from 'react';
 import { colorModeConfig } from '@configs/chakra/colorMode';
 import { system } from '@configs/chakra/theme';
+import { AppToaster } from './toaster';
 
 interface ChakraProviderProps {
 	children: ReactNode;
@@ -14,7 +15,10 @@ interface ChakraProviderProps {
 export function AppChakraProvider({ children }: ChakraProviderProps) {
 	return (
 		<ChakraProvider value={system}>
-			<ThemeProvider {...colorModeConfig}>{children}</ThemeProvider>
+			<ThemeProvider {...colorModeConfig}>
+				{children}
+				<AppToaster />
+			</ThemeProvider>
 		</ChakraProvider>
 	);
 }

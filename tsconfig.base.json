@@ -29,6 +29,9 @@
 			],
 			"@assets/*": [
 				"./src/assets/*"
+			],
+			"@lib/*": [
+				"./src/lib/*"
 			]
 		},
 		"resolveJsonModule": true,

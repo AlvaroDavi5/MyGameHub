@@ -9,6 +9,7 @@ export default defineConfig({
 			'@components': fileURLToPath(new URL('./src/components', import.meta.url)),
 			'@configs': fileURLToPath(new URL('./src/configs', import.meta.url)),
 			'@assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
+			'@lib': fileURLToPath(new URL('./src/lib', import.meta.url)),
 		},
 	},
 	test: {
