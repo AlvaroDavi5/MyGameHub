@@ -28,10 +28,6 @@ export function toActionErrorResult(error: unknown): ActionErrorResult {
 	return { error: { statusCode: HttpStatusEnum.INTERNAL_SERVER_ERROR, message: UNKNOWN_ERROR_MESSAGE } };
 }
 
-/**
- * Type guard for the standard action-error shape, shared by every place that
- * needs to detect it (the global toaster, route components, tests).
- **/
 export function isActionErrorResult(value: unknown): value is ActionErrorResult {
 	if (!value || typeof value !== 'object' || !('error' in value)) {
 		return false;
