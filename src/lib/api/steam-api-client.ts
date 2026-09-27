@@ -2,7 +2,7 @@ import type { AxiosInstance } from 'axios';
 import { environment } from '@configs/environment';
 import { HttpError } from '../http/http-error';
 import { createAxiosInstance } from '../http/axios';
-import type { IGetPlayerStatsBySteamIdResponse, IGetSteamIdByUsernameResponse } from './steam-api.contract';
+import type { IGetGameDataFilter, IGetGameDataResponse, IGetPlayerStatsBySteamIdResponse, IGetSteamIdByUsernameResponse } from './steam-api.contract';
 import { HttpStatusEnum } from '@lib/http/http-status.enum';
 
 export class SteamApiClient {
@@ -36,5 +36,16 @@ export class SteamApiClient {
 			throw new HttpError(HttpStatusEnum.NOT_FOUND, 'Player não encontrado');
 		}
 		return player;
+	}
+
+	public async getSchemaForGame(filter: IGetGameDataFilter): Promise<IGetGameDataResponse> {
+		const { data } = await this.client.get<IGetSchemaForGameResponse>(`/ISteamUserStats/GetSchemaForGame/v2/`, {
+			params: { appid: filter.appId, l: filter.lang },
+		});
+		if (!data.game.gameName) {
+			throw new HttpError(HttpStatusEnum.NOT_FOUND, 'Dados do jogo não encontrados');
+		}
+		const achievements = data.game.availableGameStats.achievements.map((achievement) => ({ name: achievement.displayName }));
+		return { achievements };
 	}
 }

@@ -28,3 +28,26 @@ interface IGetPlayerSummariesResponse {
 		}[];
 	};
 }
+
+interface IGetSchemaForGameResponse {
+	game: {
+		gameName: string;
+		gameVersion: string;
+		availableGameStats: {
+			stats: {
+				name: string;
+				defaultvalue: number;
+				displayName: string;
+			}[];
+			achievements: {
+				name: string;
+				defaultvalue: number;
+				displayName: string;
+				hidden: number;
+				icon: string;
+				icongray: string;
+				description?: string;
+			}[];
+		};
+	};
+}

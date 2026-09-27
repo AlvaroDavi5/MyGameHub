@@ -20,3 +20,15 @@ export interface IGetPlayerStatsBySteamIdResponse {
 	personastateflags: number;
 	loccountrycode: string;
 }
+
+export interface IGetGameDataFilter {
+	appId: string;
+	// language code for the game data: 'english', 'french', 'brazilian'...
+	lang: string;
+}
+
+export interface IGetGameDataResponse {
+	achievements: {
+		name: string;
+	}[];
+}

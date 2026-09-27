@@ -7,11 +7,11 @@ export default [
 		path: '/profile-search',
 	},
 	{
-		file: 'pages/game-search.tsx',
+		file: 'pages/game-search/game-search.tsx',
 		path: '/game-search',
 	},
 	{
-		file: 'pages/my-games.tsx',
+		file: 'pages/my-games/my-games.tsx',
 		path: '/my-games',
 	},
 ] satisfies RouteConfig;
