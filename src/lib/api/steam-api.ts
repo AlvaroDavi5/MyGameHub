@@ -25,7 +25,7 @@ export class SteamApiClient {
 	}
 
 	public async getPlayerStatsBySteamId(steamId: string): Promise<SuccessOrErrorResponse<IGetPlayerStatsBySteamIdResponse>> {
-		const { data } = await this.client.get<IGetPlayerSummariesResponse>(`https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002/`, {
+		const { data } = await this.client.get<IGetPlayerSummariesResponse>(`/ISteamUser/GetPlayerSummaries/v0002/`, {
 			params: { steamids: steamId },
 		});
 		if (data.response.players.length > 0) {
