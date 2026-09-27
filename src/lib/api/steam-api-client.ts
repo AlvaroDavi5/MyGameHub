@@ -28,7 +28,7 @@ export class SteamApiClient {
 	}
 
 	public async getPlayerStatsBySteamId(steamId: string): Promise<IGetPlayerStatsBySteamIdResponse> {
-		const { data } = await this.client.get<IGetPlayerSummariesResponse>(`/ISteamUser/GetPlayerSummaries/v0002/`, {
+		const { data } = await this.client.get<IGetPlayerSummariesResponse>(`/ISteamUser/GetPlayerSummaries/v2/`, {
 			params: { steamids: steamId },
 		});
 		const [player] = data.response.players;
