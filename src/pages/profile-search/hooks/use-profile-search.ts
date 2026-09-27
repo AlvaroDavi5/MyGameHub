@@ -1,26 +1,22 @@
-import { useFetcher } from 'react-router';
+import { useActionFetcher } from '@hooks/use-action-fetcher';
 import type { profileSearchAction } from '../profile-search.action';
+
+interface ProfileSearchPayload {
+	username: string;
+}
 
 interface UseProfileSearchResult {
 	isSearching: boolean;
-	result: ReturnType<typeof useFetcher<typeof profileSearchAction>>['data'];
+	result: ReturnType<typeof useActionFetcher<typeof profileSearchAction, ProfileSearchPayload>>['data'];
 	search: (username: string) => void;
 }
 
-/**
- * Wires the profile-search route action through a fetcher. Request failures
- * are not handled here — they're caught and surfaced as a toast app-wide by
- * `HttpErrorToaster`, which watches every fetcher's settled data.
- **/
 export function useProfileSearch(): UseProfileSearchResult {
-	const fetcher = useFetcher<typeof profileSearchAction>();
-
-	const isSearching = fetcher.state !== 'idle';
-	const result = fetcher.data;
+	const { isPending, data, submit } = useActionFetcher<typeof profileSearchAction, ProfileSearchPayload>();
 
 	const search = (username: string): void => {
-		fetcher.submit({ username }, { method: 'post' });
+		submit({ username }, { method: 'post' });
 	};
 
-	return { isSearching, result, search };
+	return { isSearching: isPending, result: data, search };
 }

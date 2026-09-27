@@ -10,6 +10,7 @@ export default defineConfig({
 			'@configs': fileURLToPath(new URL('./src/configs', import.meta.url)),
 			'@assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
 			'@lib': fileURLToPath(new URL('./src/lib', import.meta.url)),
+			'@hooks': fileURLToPath(new URL('./src/hooks', import.meta.url)),
 		},
 	},
 	test: {
