@@ -35,6 +35,9 @@
 			],
 			"@hooks/*": [
 				"./src/hooks/*"
+			],
+			"@store/*": [
+				"./src/store/*"
 			]
 		},
 		"resolveJsonModule": true,

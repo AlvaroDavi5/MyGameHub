@@ -11,6 +11,7 @@ export default defineConfig({
 			'@assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
 			'@lib': fileURLToPath(new URL('./src/lib', import.meta.url)),
 			'@hooks': fileURLToPath(new URL('./src/hooks', import.meta.url)),
+			'@store': fileURLToPath(new URL('./src/store', import.meta.url)),
 		},
 	},
 	test: {
