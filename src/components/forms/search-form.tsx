@@ -2,11 +2,12 @@ import { useState, type ChangeEvent, type ReactElement } from 'react';
 import { Button, Flex, Input } from '@chakra-ui/react';
 
 interface SearchFormProps {
+	placeholder?: string;
 	isSearching?: boolean;
 	onSearch: (username: string) => void;
 }
 
-export function SearchForm({ isSearching = false, onSearch }: SearchFormProps): ReactElement {
+export function SearchForm({ isSearching = false, placeholder, onSearch }: SearchFormProps): ReactElement {
 	const [lastSearchedUsername, setLastSearchedUsername] = useState<string>('');
 	const [inputUsername, setInputUsername] = useState<string>('');
 	const [wasSubmitted, setWasSubmitted] = useState<boolean>(false);
@@ -34,13 +35,7 @@ export function SearchForm({ isSearching = false, onSearch }: SearchFormProps): 
 			gap={[2, 4]}
 			padding={4}
 		>
-			<Input
-				data-testid="search-input"
-				value={inputUsername}
-				onChange={changeInputUsername}
-				placeholder="Digite o username ou SteamID"
-				width={['100%', '600px']}
-			/>
+			<Input data-testid="search-input" value={inputUsername} onChange={changeInputUsername} placeholder={placeholder ?? ''} width={['100%', '600px']} />
 			<Button data-testid="search-button" onClick={submitSearch} disabled={isSearchButtonDisabled}>
 				Pesquisar
 			</Button>

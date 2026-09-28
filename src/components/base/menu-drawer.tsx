@@ -9,19 +9,19 @@ interface FeatureListItemProps {
 	to: string;
 	label: string;
 	children: React.ReactNode;
+	disabled?: boolean;
 }
 
-function FeatureListItem(props: FeatureListItemProps): ReactElement {
+function FeatureListItem({ disabled = false, ...props }: FeatureListItemProps): ReactElement {
 	return (
-		<List.Item borderBottom="1px solid" borderColor="border" _last={{ borderBottom: 'none' }}>
-			<ChakraLink
-				asChild
-				display="block"
-				width="full"
-				paddingBlock={3}
-				textAlign="center"
-				_hover={{ background: 'blackAlpha.500', transition: 'backgrounds 0.2s ease', textDecoration: 'none' }}
-			>
+		<List.Item
+			borderBottom="1px solid"
+			borderColor="border"
+			_last={{ borderBottom: 'none' }}
+			opacity={disabled ? 0.5 : 1}
+			pointerEvents={disabled ? 'none' : 'auto'}
+		>
+			<ChakraLink asChild display="block" width="full" paddingBlock={3} textAlign="center">
 				<RouterLink to={props.to} aria-label={props.label}>
 					{props.children}
 				</RouterLink>
@@ -30,7 +30,11 @@ function FeatureListItem(props: FeatureListItemProps): ReactElement {
 	);
 }
 
-export function MenuDrawer(): ReactElement {
+interface MenuDrawerProps {
+	disabled?: boolean;
+}
+
+export function MenuDrawer(props: MenuDrawerProps): ReactElement {
 	return (
 		<Drawer.Root placement="end">
 			<Drawer.Trigger asChild>
@@ -56,15 +60,15 @@ export function MenuDrawer(): ReactElement {
 
 						<Drawer.Body display="flex" flexDirection="column" gap={4}>
 							<List.Root width="full" listStyle="none">
-								<FeatureListItem to="/profile-search" label="Pesquisar usuários">
+								<FeatureListItem to="/profile-search" label="Pesquisar usuários" disabled={props.disabled}>
 									Pesquisar Usuários
 								</FeatureListItem>
 
-								<FeatureListItem to="/game-search" label="Pesquisar jogos">
+								<FeatureListItem to="/game-search" label="Pesquisar jogos" disabled={props.disabled}>
 									Pesquisar Jogos
 								</FeatureListItem>
 
-								<FeatureListItem to="/my-games" label="Consultar meus jogos">
+								<FeatureListItem to="/my-games" label="Consultar meus jogos" disabled={props.disabled}>
 									Consultar Meus Jogos
 								</FeatureListItem>
 							</List.Root>

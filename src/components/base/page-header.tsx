@@ -3,6 +3,8 @@ import { Link as RouterLink } from 'react-router';
 import { Flex, Link as ChakraLink, Image, Heading } from '@chakra-ui/react';
 import { siteConfig } from '@configs/site';
 import logo from '@assets/logo.svg';
+import { useAppSelector } from '@store/hooks';
+import { selectHasSteamUser } from '@store/steam-user.selectors';
 import { MenuDrawer } from './menu-drawer';
 
 interface PageHeaderProps {
@@ -11,12 +13,14 @@ interface PageHeaderProps {
 }
 
 export function PageHeader({ renderMenuDrawer = true, renderTitle = true }: PageHeaderProps): ReactElement {
+	const hasSteamUser = useAppSelector(selectHasSteamUser);
+
 	const titleComponent = renderTitle ? (
 		<Heading as="h1" size="lg" color="fg.onAccent">
 			{siteConfig.title}
 		</Heading>
 	) : undefined;
-	const menuDrawerComponent = renderMenuDrawer ? <MenuDrawer /> : undefined;
+	const menuDrawerComponent = renderMenuDrawer ? <MenuDrawer disabled={!hasSteamUser} /> : undefined;
 
 	return (
 		<Flex as="header" background="bg.header" width="full" height="72px" paddingInline={4} align="center" justify="space-between" boxShadow="sm">

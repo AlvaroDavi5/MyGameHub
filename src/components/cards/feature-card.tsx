@@ -7,11 +7,12 @@ interface FeatureCardProps {
 	imgSrc: string;
 	imgAlt: string;
 	children: ReactNode;
+	disabled?: boolean;
 }
 
-export function FeatureCard({ to, imgSrc, imgAlt, children }: FeatureCardProps): ReactElement {
+export function FeatureCard({ to, imgSrc, imgAlt, children, disabled = false }: FeatureCardProps): ReactElement {
 	return (
-		<LinkBox>
+		<LinkBox opacity={disabled ? 0.5 : 1} pointerEvents={disabled ? 'none' : 'auto'} aria-disabled={disabled}>
 			<Card.Root
 				minHeight="250px"
 				maxHeight="350px"
@@ -24,14 +25,16 @@ export function FeatureCard({ to, imgSrc, imgAlt, children }: FeatureCardProps):
 				borderRadius="2xl"
 				overflow="hidden"
 				transition="background-color 0.2s ease"
-				_hover={{ bg: 'bg.card.hover' }}
+				_hover={disabled ? undefined : { bg: 'bg.card.hover' }}
 			>
-				<Image src={imgSrc} alt={imgAlt} width="full" height="250px" objectFit="cover" />
+				<Image src={imgSrc} alt={imgAlt} filter={disabled ? 'grayscale(100%)' : 'none'} width="full" height="250px" objectFit="cover" />
 				<Card.Body padding="5px">
 					<Card.Title textAlign="center" textJustify="center" fontSize="lg">
-						<LinkOverlay asChild>
-							<RouterLink to={to} />
-						</LinkOverlay>
+						{!disabled && (
+							<LinkOverlay asChild>
+								<RouterLink to={to} />
+							</LinkOverlay>
+						)}
 						<Box padding="20px">{children}</Box>
 					</Card.Title>
 				</Card.Body>

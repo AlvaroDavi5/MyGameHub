@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react';
 import { Box, Code, Container, Heading, Text } from '@chakra-ui/react';
 import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
-import { AppChakraProvider } from '@components/chakra/chakra_provider';
+import { AppProviders } from '@components/app-providers';
 import { PageBase } from '@components/base/page-base';
 import type { Route } from './+types/root';
 
@@ -29,7 +29,7 @@ export function Layout({ children }: { children: React.ReactNode }): ReactElemen
 				<Links />
 			</head>
 			<body>
-				<AppChakraProvider>{children}</AppChakraProvider>
+				<AppProviders>{children}</AppProviders>
 				<ScrollRestoration />
 				<Scripts />
 			</body>
