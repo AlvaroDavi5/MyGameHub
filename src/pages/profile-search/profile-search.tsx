@@ -27,6 +27,10 @@ export default function ProfileSearch(): ReactElement {
 						profileUrl={result.data.profileUrl}
 						avatarSrc={result.data.avatar}
 						countryCode={result.data.countryCode}
+						lastLogoffTimestamp={result.data.lastLogoffTimestamp}
+						gamesCount={result.data.gamesCount}
+						badgesCount={result.data.badgesCount}
+						accountLevel={result.data.accountLevel}
 					/>
 				)}
 			</Box>

@@ -11,8 +11,8 @@ describe('SearchForm rendering', () => {
 		expect(screen.getByTestId('search-button')).toBeInTheDocument();
 	});
 
-	it('should render the input with its placeholder', () => {
-		renderWithProviders(<SearchForm onSearch={vi.fn()} />);
+	it('should render the input with the received placeholder', () => {
+		renderWithProviders(<SearchForm onSearch={vi.fn()} placeholder="Digite o username ou SteamID" />);
 
 		expect(screen.getByPlaceholderText('Digite o username ou SteamID')).toBeInTheDocument();
 	});

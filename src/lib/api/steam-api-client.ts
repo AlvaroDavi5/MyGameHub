@@ -6,6 +6,7 @@ import type {
 	IGetGameAchievementsFilter,
 	IGetGameAchievementsResponse,
 	IGetOwnedGamesResponse,
+	IGetPlayerBadgesResponse,
 	IGetPlayerStatsBySteamIdResponse,
 	IGetSteamIdByUsernameResponse,
 } from './steam-api.contract';
@@ -50,6 +51,18 @@ class SteamApiClient {
 			countryCode: player.loccountrycode,
 			avatar: player.avatarfull,
 			profileUrl: player.profileurl,
+			lastLogoffTimestamp: player.lastlogoff,
+		};
+	}
+
+	public async getPlayerBadges(steamId: string): Promise<IGetPlayerBadgesResponse> {
+		const { data } = await this.client.get<IGetBadgesRawResponse>(`/IPlayerService/GetBadges/v1/`, {
+			params: { steamid: steamId },
+		});
+
+		return {
+			accountLevel: data.response.player_level,
+			badgesCount: data.response.badges?.length ?? 0,
 		};
 	}
 

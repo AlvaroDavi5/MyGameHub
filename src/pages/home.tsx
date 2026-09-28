@@ -2,6 +2,7 @@ import { useEffect, type ReactElement } from 'react';
 import { Flex } from '@chakra-ui/react';
 import { FeatureCard } from '@components/cards/feature-card';
 import { SearchForm } from '@components/forms/search-form';
+import { MiniProfileView } from '@components/profile/mini-profile-view';
 import gameSearchImg from '@assets/cards/game-search.jpg';
 import myGamesImg from '@assets/cards/my-games.jpg';
 import profileSearchImg from '@assets/cards/profile-search.png';
@@ -38,6 +39,16 @@ export default function Home(): ReactElement {
 	return (
 		<Flex direction="column" align="center" gap={8} padding={8} minH="calc(100vh - 72px)">
 			<SearchForm isSearching={isSearching} onSearch={search} placeholder="Digite seu username ou SteamID" />
+
+			{!isSearching && result && 'data' in result && result.data && (
+				<MiniProfileView
+					personaName={result.data.personaName}
+					realName={result.data.realName}
+					profileUrl={result.data.profileUrl}
+					avatarSrc={result.data.avatar}
+					countryCode={result.data.countryCode}
+				/>
+			)}
 
 			<Flex wrap="wrap" justify="center" align="center" gap={8}>
 				<FeatureCard to="/profile-search" imgSrc={profileSearchImg} imgAlt="Pesquisar usuários" disabled={disableCards}>

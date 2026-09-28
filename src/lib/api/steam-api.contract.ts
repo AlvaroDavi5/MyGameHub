@@ -9,6 +9,12 @@ export interface IGetPlayerStatsBySteamIdResponse {
 	countryCode: string;
 	avatar: string;
 	profileUrl: string;
+	lastLogoffTimestamp: number;
+}
+
+export interface IGetPlayerBadgesResponse {
+	accountLevel: number;
+	badgesCount: number;
 }
 
 interface IOwnedGame {

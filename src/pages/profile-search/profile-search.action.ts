@@ -15,8 +15,20 @@ export async function profileSearchAction({ request }: ActionFunctionArgs) {
 			steamId = resolvedSteamId;
 		}
 
-		const player = await steamApiClient.getPlayerStatsBySteamId(steamId);
-		return { data: player };
+		const [player, ownedGames, badges] = await Promise.all([
+			steamApiClient.getPlayerStatsBySteamId(steamId),
+			steamApiClient.getOwnedGames(steamId),
+			steamApiClient.getPlayerBadges(steamId),
+		]);
+
+		return {
+			data: {
+				...player,
+				gamesCount: ownedGames.games.length,
+				accountLevel: badges.accountLevel,
+				badgesCount: badges.badgesCount,
+			},
+		};
 	} catch (error) {
 		return toActionErrorResult(error);
 	}
