@@ -89,13 +89,14 @@ class SteamApiClient {
 
 		const achievements = schemaAchievements.map((achievement) => {
 			const achieved = achievedByApiName.get(achievement.name) ?? false;
+			const icon = achieved ? achievement.icon : (achievement.icongray ?? achievement.icon);
 			return {
 				apiName: achievement.name,
 				name: achievement.displayName,
 				description: achievement.description,
-				icon: achieved ? achievement.icon : achievement.icongray,
-				achieved,
 				hidden: achievement.hidden === 1,
+				achieved,
+				icon,
 			};
 		});
 

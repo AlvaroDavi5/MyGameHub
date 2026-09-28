@@ -22,11 +22,11 @@ export default function ProfileSearch(): ReactElement {
 				{isSearching && <Text>Pesquisando...</Text>}
 				{!isSearching && result && 'data' in result && result.data && (
 					<ProfileView
-						personaName={result.data.personaname}
-						realName={result.data.realname}
-						profileUrl={result.data.profileurl}
-						imgSrc={result.data.avatarfull}
-						countryCode={result.data.loccountrycode}
+						personaName={result.data.personaName}
+						realName={result.data.realName}
+						profileUrl={result.data.profileUrl}
+						avatarSrc={result.data.avatar}
+						countryCode={result.data.countryCode}
 					/>
 				)}
 			</Box>
