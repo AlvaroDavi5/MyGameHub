@@ -25,7 +25,7 @@ export default function Home(): ReactElement {
 
 	useEffect(() => {
 		if (result && 'data' in result && result.data) {
-			dispatch(setSteamId(result.data.steamid));
+			dispatch(setSteamId(result.data.steamId));
 		}
 		if (result && 'error' in result) {
 			dispatch(clearSteamId());

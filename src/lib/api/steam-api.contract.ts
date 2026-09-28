@@ -3,32 +3,42 @@ export interface IGetSteamIdByUsernameResponse {
 }
 
 export interface IGetPlayerStatsBySteamIdResponse {
-	steamid: string;
-	communityvisibilitystate: number;
-	profilestate: number;
-	personaname: string;
-	profileurl: string;
+	steamId: string;
+	personaName: string;
+	realName: string;
+	countryCode: string;
 	avatar: string;
-	avatarmedium: string;
-	avatarfull: string;
-	avatarhash: string;
-	lastlogoff: number;
-	personastate: number;
-	realname: string;
-	primaryclanid: string;
-	timecreated: number;
-	personastateflags: number;
-	loccountrycode: string;
+	profileUrl: string;
 }
 
-export interface IGetGameDataFilter {
+interface IOwnedGame {
+	appId: number;
+	name: string;
+	imageUrl: string;
+	playtime: number;
+}
+
+export interface IGetOwnedGamesResponse {
+	games: IOwnedGame[];
+}
+
+export interface IGetGameAchievementsFilter {
 	appId: string;
+	steamId: string;
 	// language code for the game data: 'english', 'french', 'brazilian'...
 	lang: string;
 }
 
-export interface IGetGameDataResponse {
-	achievements: {
-		name: string;
-	}[];
+export interface IGameAchievement {
+	apiName: string;
+	name: string;
+	description?: string | undefined;
+	icon: string;
+	achieved: boolean;
+	hidden: boolean;
+}
+
+export interface IGetGameAchievementsResponse {
+	gameName: string;
+	achievements: IGameAchievement[];
 }
