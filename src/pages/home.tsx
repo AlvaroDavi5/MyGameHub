@@ -8,7 +8,7 @@ import profileSearchImg from '@assets/cards/profile-search.png';
 import { siteConfig } from '@configs/site';
 import { useAppDispatch, useAppSelector } from '@store/hooks';
 import { selectSteamId } from '@store/steam-user.selectors';
-import { setSteamId } from '@store/steam-user.slice';
+import { clearSteamId, setSteamId } from '@store/steam-user.slice';
 import { useProfileSearch } from './profile-search/hooks/use-profile-search';
 import type { Route } from './+types/home';
 
@@ -26,6 +26,9 @@ export default function Home(): ReactElement {
 	useEffect(() => {
 		if (result && 'data' in result && result.data) {
 			dispatch(setSteamId(result.data.steamid));
+		}
+		if (result && 'error' in result) {
+			dispatch(clearSteamId());
 		}
 	}, [result, dispatch]);
 

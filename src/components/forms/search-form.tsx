@@ -7,7 +7,7 @@ interface SearchFormProps {
 	onSearch: (username: string) => void;
 }
 
-export function SearchForm({ isSearching = false, placeholder, onSearch }: SearchFormProps): ReactElement {
+export function SearchForm({ isSearching = false, placeholder = '', onSearch }: SearchFormProps): ReactElement {
 	const [lastSearchedUsername, setLastSearchedUsername] = useState<string>('');
 	const [inputUsername, setInputUsername] = useState<string>('');
 	const [wasSubmitted, setWasSubmitted] = useState<boolean>(false);
@@ -35,7 +35,7 @@ export function SearchForm({ isSearching = false, placeholder, onSearch }: Searc
 			gap={[2, 4]}
 			padding={4}
 		>
-			<Input data-testid="search-input" value={inputUsername} onChange={changeInputUsername} placeholder={placeholder ?? ''} width={['100%', '600px']} />
+			<Input data-testid="search-input" value={inputUsername} onChange={changeInputUsername} placeholder={placeholder} width={['100%', '600px']} />
 			<Button data-testid="search-button" onClick={submitSearch} disabled={isSearchButtonDisabled}>
 				Pesquisar
 			</Button>

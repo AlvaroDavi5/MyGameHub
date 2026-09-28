@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it, vi } from 'vitest';
-import { SearchForm } from '../../src/pages/profile-search/components/search-form';
+import { SearchForm } from '../../src/components/forms/search-form';
 import { renderWithProviders } from '../utils';
 
 function getInput(): HTMLInputElement {

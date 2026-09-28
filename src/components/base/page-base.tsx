@@ -1,6 +1,5 @@
 import type { ReactElement, ReactNode } from 'react';
 import { siteConfig } from '@configs/site';
-import { HttpErrorToaster } from './http-error-toaster';
 import { PageHeader } from './page-header';
 import type { Route } from '../../+types/root';
 
@@ -17,7 +16,6 @@ export function PageBase({ children }: PageBaseProps): ReactElement {
 		<>
 			<PageHeader />
 			<main>{children}</main>
-			<HttpErrorToaster />
 		</>
 	);
 }

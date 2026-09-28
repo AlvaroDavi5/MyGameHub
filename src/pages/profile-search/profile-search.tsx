@@ -2,7 +2,7 @@ import type { ReactElement } from 'react';
 import { Box, Text } from '@chakra-ui/react';
 import type { Route } from './+types/profile-search';
 import { useProfileSearch } from './hooks/use-profile-search';
-import { SearchForm } from './components/search-form';
+import { SearchForm } from '@components/forms/search-form';
 import { ProfileView } from './components/profile-view';
 
 export { profileSearchAction as action } from './profile-search.action';
@@ -16,7 +16,7 @@ export default function ProfileSearch(): ReactElement {
 
 	return (
 		<>
-			<SearchForm isSearching={isSearching} onSearch={search} />
+			<SearchForm isSearching={isSearching} onSearch={search} placeholder="Digite o username ou SteamID que deseja pesquisar" />
 
 			<Box padding={4}>
 				{isSearching && <Text>Pesquisando...</Text>}

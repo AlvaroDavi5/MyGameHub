@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import { SearchForm } from '../../src/pages/profile-search/components/search-form';
+import { SearchForm } from '../../src/components/forms/search-form';
 import { renderWithProviders } from '../utils';
 
 describe('SearchForm rendering', () => {

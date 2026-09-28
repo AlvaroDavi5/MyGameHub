@@ -1,9 +1,9 @@
 import { render, type RenderOptions, type RenderResult } from '@testing-library/react';
 import type { ReactElement, ReactNode } from 'react';
-import { AppChakraProvider } from '@components/chakra/chakra_provider';
+import { AppProviders } from '@components/app-providers';
 
 function Providers({ children }: { children: ReactNode }) {
-	return <AppChakraProvider>{children}</AppChakraProvider>;
+	return <AppProviders>{children}</AppProviders>;
 }
 
 /**
